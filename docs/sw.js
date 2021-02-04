@@ -7,6 +7,7 @@ const assets = [
 	'/pages/fallback.html',
 	'/js/scripts.js',
 	'/js/alpine.min.js',
+	'/js/components/toggle.js',
 	'/css/styles.css',
 	'/img/icons/icon-96x96.png',
 ];
