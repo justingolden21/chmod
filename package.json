@@ -1,0 +1,27 @@
+{
+	"name": "chmod-calculator",
+	"version": "1.0.0",
+	"description": "A simple chmod calculator for converting file permissions across different formats",
+	"scripts": {
+		"dev-no-watch": "postcss src/styles.css -o docs/css/styles.css",
+		"dev": "postcss src/styles.css -o docs/css/styles.css --watch",
+		"build": "cross-env NODE_ENV=production postcss src/styles.css -o docs/css/styles.css && cleancss -o docs/css/styles.css docs/css/styles.css"
+	},
+	"keywords": [
+		"chmod calculator",
+		"file permission calculator",
+		"chmod converter",
+		"file permission converter",
+		"linux file permissions",
+		"read write execute permissions"
+	],
+	"author": "Justin Golden",
+	"license": "MIT",
+	"dependencies": {
+		"autoprefixer": "^10.1.0",
+		"clean-css-cli": "^4.3.0",
+		"cross-env": "^7.0.3",
+		"postcss-cli": "^8.3.1",
+		"tailwindcss": "^2.0.2"
+	}
+}

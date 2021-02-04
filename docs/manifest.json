@@ -1,0 +1,42 @@
+{
+	"name": "Chmod Calculator",
+	"short_name": "Chmod Calculator",
+	"description": "A simple chmod calculator for converting file permissions across different formats",
+	"start_url": "index.html",
+	"display": "standalone",
+	"background_color": "#FAFAFA",
+	"theme_color": "#FAFAFA",
+	"orientation": "portrait-primary",
+	"icons": [
+		{
+			"src": "img/icons/icon-48x48.png",
+			"type": "image/png",
+			"sizes": "48x48"
+		},
+		{
+			"src": "img/icons/icon-72x72.png",
+			"type": "image/png",
+			"sizes": "72x72"
+		},
+		{
+			"src": "img/icons/icon-96x96.png",
+			"type": "image/png",
+			"sizes": "96x96"
+		},
+		{
+			"src": "img/icons/icon-144x144.png",
+			"type": "image/png",
+			"sizes": "144x144"
+		},
+		{
+			"src": "img/icons/icon-192x192.png",
+			"type": "image/png",
+			"sizes": "192x192"
+		},
+		{
+			"src": "img/icons/icon-512x512.png",
+			"type": "image/png",
+			"sizes": "512x512"
+		}
+	]
+}

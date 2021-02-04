@@ -16,9 +16,9 @@ Localhost: run `localhost.bat` if you have Python3 installed
 
 ### Links
 
-- Live demo: https://justingolden.me/chmod-calculator
+- Live demo: https://justingolden.me/chmod
 
-- This repo: https://github.com/justingolden21/chmod-calculator
+- This repo: https://github.com/justingolden21/chmod
 
 <hr>
 
