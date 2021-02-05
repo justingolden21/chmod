@@ -45,7 +45,13 @@ function setup () {
                     num += this.data[group][action] ? amounts[group] * amounts[action] : 0;
                 }
             }
-            return num.toString().padStart(3, '0');
+            octal = num.toString().padStart(3, '0');
+
+            const url = new URL(window.location.href);
+            url.searchParams.set('q', octal);
+            history.pushState(null, document.title, url.toString());
+
+            return octal;
         },
 
         get mode() {
