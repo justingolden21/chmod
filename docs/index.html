@@ -95,12 +95,10 @@
 			</div>
 			<div class="text-center md:text-left md:pl-8 mt-4 pt-4 md:mt-0 md:pt-4 border-t-2 md:border-t-0 md:border-l-2 border-gray-300">
 
-				<input id="octal" type="text" x-model="octal">
-				<!-- x-ref="octal" x-on:submit="console.log($el)"
-				x-on:submit="octal = event.target.value"` -->
+				<input id="octal" type="text" x-bind:value="octal" @keydown.enter="updateOctal(event.target.value)">
 				<label for="octal">Octal</label>
 				<br>
-				<input id="mode" type="text" x-model="mode">
+				<input id="mode" type="text" x-bind:value="mode" @keydown.enter="updateMode(event.target.value)">
 				<label for="mode">Mode</label>
 
 			</div>
@@ -125,7 +123,7 @@
 						o: { r: false, w: false, x: false }
 					},
 
-					set octal(octal) {
+					updateOctal: function(octal) { // setter
 						octal = octal.replace(/[^0-7]/g, '');
 						if(octal.length != 3) return;
 						let chmod = parseInt(octal);
@@ -138,7 +136,7 @@
 						}
 					},
 
-					set mode(mode) {
+					updateMode(mode) { // setter
 						mode = mode.substring(1);
 						for(let group of ['u','g','o']) {
 							for(let action of ['r','w','x']) {
