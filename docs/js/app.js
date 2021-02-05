@@ -8,9 +8,23 @@ window.onload = function() {
 	document.getElementById('copy-octal-btn').onclick = function() {
 		document.getElementById('octal').select();
 		document.execCommand('copy');
+		showSnackbar('Copied octal');
 	};
 	document.getElementById('copy-mode-btn').onclick = function() {
 		document.getElementById('mode').select();
 		document.execCommand('copy');
+		showSnackbar('Copied mode');
 	};
+	document.getElementById('link-btn').onclick = function() {
+		copyText(window.location.href);
+		showSnackbar('Copied link');
+	}
 };
+
+function copyText(text) {
+	let input = document.body.appendChild(document.createElement('input'));
+	input.value = text;
+	input.select();
+	document.execCommand('copy');
+	input.parentNode.removeChild(input);
+}

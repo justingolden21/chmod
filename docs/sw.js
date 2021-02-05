@@ -1,5 +1,5 @@
 const staticCacheName = 'site-static-v2';
-const dynamicCacheName = 'site-dynamic-v3';
+const dynamicCacheName = 'site-dynamic-v4';
 const assets = [
 	'/',
 	'/index.html',
@@ -9,6 +9,7 @@ const assets = [
 	'/js/app.js',
 	'/js/alpine.min.js',
 	'/js/components/toggle.js',
+	'/js/components/snackbar.js',
 	'/css/styles.css',
 	'/img/icons/icon96.png',
 ];

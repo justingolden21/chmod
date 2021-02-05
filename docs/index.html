@@ -19,12 +19,16 @@
 	<script src="js/main.js"></script>
 	<script src="js/app.js"></script>
 	<script src="js/components/toggle.js"></script>
+	<script src="js/components/snackbar.js"></script>
 </head>
 <body class="m-4 text-gray-900">
 	<section x-data="setup()" x-init="tmp = new URLSearchParams(location.search).get('q') || '000'; $nextTick(()=> updateOctal(tmp))">
 		<h1 class="text-center border-b-2 border-gray-300 pb-4">
 			<img src="img/icons/icon.svg" class="h-6 inline">
 			Chmod Calculator
+			<button id="link-btn" class="btn">
+				<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
+			</button>
 		</h1>
 
 		<div class="md:grid md:grid-cols-2 md:gap-4">
@@ -123,6 +127,8 @@
 			</div>
 
 		</div>
+
+		<div id="snackbar"></div>
 	</section>
 </body>
 </html>
