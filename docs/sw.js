@@ -1,11 +1,12 @@
-const staticCacheName = 'site-static-v1';
-const dynamicCacheName = 'site-dynamic-v1';
+const staticCacheName = 'site-static-v2';
+const dynamicCacheName = 'site-dynamic-v2';
 const assets = [
 	'/',
 	'/index.html',
 	'/404.html',
 	'/pages/fallback.html',
-	'/js/scripts.js',
+	'/js/main.js',
+	'/js/app.js',
 	'/js/alpine.min.js',
 	'/js/components/toggle.js',
 	'/css/styles.css',
