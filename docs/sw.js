@@ -10,7 +10,7 @@ const assets = [
 	'/js/alpine.min.js',
 	'/js/components/toggle.js',
 	'/css/styles.css',
-	'/img/icons/icon-96x96.png',
+	'/img/icons/icon96.png',
 ];
 
 // cache size limit function

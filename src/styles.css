@@ -16,10 +16,10 @@
 	}
 
 	h1 {
-		@apply text-2xl font-light;
+		@apply text-2xl tracking-wider;
 	}
 	h2 {
-		@apply text-xl font-medium;
+		@apply text-xl;
 	}
 	p {
 		@apply leading-relaxed;
@@ -29,12 +29,18 @@
 @layer components {
 
 	input[type=text] {
-		@apply p-1 m-1 text-gray-700 border-2 border-gray-300;
+		@apply p-1 m-2 text-gray-700 border-2 border-gray-300;
+	}
+	label {
+		@apply text-sm;
 	}
 
 }
 
 @media (min-width: 640px) { /* sm */
+	label {
+		@apply text-base;
+	}
 }
 
 @media (min-width: 768px) { /* md */
