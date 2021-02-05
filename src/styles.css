@@ -30,7 +30,8 @@
 @layer components {
 
 	input[type=text] {
-		@apply p-1 m-2 text-gray-700 border-2 border-gray-300;
+		@apply p-1 m-2 text-gray-700 border-2 border-gray-300 w-32;
+		font-family: 'Courier New', monospace;
 	}
 	label {
 		@apply text-sm;
