@@ -147,9 +147,20 @@
 							<h1>Info</h1>
 						</div>
 						<div class="modal-body">
-							<p class="my-2 font-bold">Linux File Permissions</p>
-							<p>File permissions are split into three types of access: read, write, and execute. Permissions can also be assigned across three different groups of access: user, group, and public.</p>
-							<!-- expand: more about what read, write and exec mean, more about what the three groups mean, plus btn -->
+							<div x-data="{ expanded: false }">
+								<p class="my-2 font-bold">Linux File Permissions
+									<button class="btn sm" @click="expanded = !expanded">
+										<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
+									</button>
+								</p>
+								<p>File permissions are split into three types of access: read, write, and execute. Permissions can also be assigned across three different groups of access: user, group, and public.</p>
+								<p x-show="expanded">
+									The <b>user</b> is the owner of the file. The person who created the file is the default owner. <b>User groups</b> contain multiple users, which all have the same permissions for the file <b>Others</b> includes everyone who is neither the owner nor in the user group.
+									<br>
+									The <b>read</b> permission provides the ability open a file to view its contents. The <b>write</b> permission gives you the ability to modify a file. When applied to a directory, this includes adding, removing, and renaming files in the directory. The <b>execute</b> permission allows you to run a file; without it, the program cannot be executed.
+								</p>
+							</div>
+
 							<p class="my-2 font-bold">Viewing Permissions</p>
 							<p>You can view the file permissions in the current directory with <code>ls -l</code></p>
 							<!-- more about ls command and viewing permissions -->

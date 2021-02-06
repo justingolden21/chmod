@@ -15,5 +15,8 @@
     @apply border-b-2 border-gray-300 pb-9;
 }
 .modal-body {
-    @apply pt-4 text-left leading-7;
+    @apply pt-4 text-left;
+}
+.modal-body p {
+    @apply leading-7;
 }
