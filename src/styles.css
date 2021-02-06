@@ -31,8 +31,14 @@
 	p {
 		@apply leading-relaxed;
 	}
+	a {
+		@apply text-gray-500 hover:underline;
+	}
 	code {
 		@apply p-1 bg-gray-200;
+	}
+	hr {
+		@apply bg-gray-300 border border-gray-300 m-4;
 	}
 }
 

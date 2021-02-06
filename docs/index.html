@@ -144,37 +144,157 @@
 							<button class="btn float-right" @click="open = false">
 								<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
 							</button>
-							<h1>Info</h1>
+							<h1 class="hidden md:block">Learn to read and set permissions</h1>
+							<h1 class="block md:hidden">Learn about permissions</h1>
 						</div>
 						<div class="modal-body">
 							<div x-data="{ expanded: false }">
-								<p class="my-2 font-bold">Linux File Permissions
+								<p class="mb-2 mt-2 font-bold">File Permissions
 									<button class="btn sm" @click="expanded = !expanded">
-										<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
+										<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+											<g stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+												<path x-show="!expanded" d="M12 6v12"></path>
+												<path d="M6 12h12"></path>
+											</g>
+										</svg>
 									</button>
 								</p>
 								<p>File permissions are split into three types of access: read, write, and execute. Permissions can also be assigned across three different groups of access: user, group, and public.</p>
-								<p x-show="expanded">
-									The <b>user</b> is the owner of the file. The person who created the file is the default owner. <b>User groups</b> contain multiple users, which all have the same permissions for the file <b>Others</b> includes everyone who is neither the owner nor in the user group.
-									<br>
+								<p class="mt-4" x-show.transition="expanded">
+									The <b>user</b> is the owner of the file. The person who created the file is the default owner. <b>User groups</b> contain multiple users, which all have the same permissions for the file. <b>Others</b> includes everyone who is neither the owner nor in the user group.
+									<br><br>
 									The <b>read</b> permission provides the ability open a file to view its contents. The <b>write</b> permission gives you the ability to modify a file. When applied to a directory, this includes adding, removing, and renaming files in the directory. The <b>execute</b> permission allows you to run a file; without it, the program cannot be executed.
 								</p>
 							</div>
 
-							<p class="my-2 font-bold">Viewing Permissions</p>
-							<p>You can view the file permissions in the current directory with <code>ls -l</code></p>
-							<!-- more about ls command and viewing permissions -->
-							<p class="my-2 font-bold">Changing Permissions</p>
-							<p>You can set file permissions with the <code>chmod</code> command</p>
-							<!-- <p>The <code>chmod</code> command can either be used in octal or symbolic mode</p> -->
-							<!-- more about chmod command and changing permissions -->
+							<div x-data="{ expanded: false }">
+								<p class="mb-2 mt-6 font-bold">Viewing Permissions
+									<button class="btn sm" @click="expanded = !expanded">
+										<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+											<g stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+												<path x-show="!expanded" d="M12 6v12"></path>
+												<path d="M6 12h12"></path>
+											</g>
+										</svg>
+									</button>
+								</p>
+								<p>You can view the file permissions in the current directory with <code>ls -l</code></p>
+								<p class="mt-4" x-show.transition="expanded">
+									<code>ls -l</code> will show you a list of information about all files in the current directory. You can also add a path to a file or folder at the end: <code>ls -l /path/to/file</code> to view the permissions for a specific file or folder.
+									<br><br>
+									Example:
+									<code class="block whitespace-pre overflow-x-scroll my-2 p-2">ls -l
+total 2
+drwxr-xr-x 1 justing justing   789 Jan  1 12:34 myfolder
+-rw-r--r-- 1 justing justing 12345 Feb  2 23:45 myfile.txt</code>
+									<br>
+									Use <code>cut</code> to only show the permission fields: <code>ls -l /path/to/file | cut -c1-10</code>
+									Example:
+									<code class="block whitespace-pre overflow-x-scroll my-2 p-2">ls -l
+total 2
+drwxr-xr-x
+-rw-r--r--</code>
+								</p>
+							</div>
+
+
+							<div x-data="{ expanded: false }">
+								<p class="mb-2 mt-6 font-bold">Permission Field and Octal
+									<button class="btn sm" @click="expanded = !expanded">
+										<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+											<g stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+												<path x-show="!expanded" d="M12 6v12"></path>
+												<path d="M6 12h12"></path>
+											</g>
+										</svg>
+									</button>
+								</p>
+								<p>The permission fields describe which users have which permissions.</p>
+								<p class="mt-4" x-show.transition="expanded">
+									Permission fields can be broken down into three parts: <code>r</code> represents the read permission, <code>w</code> represents the write permission, and <code>x</code> represents the execute permission. The first set of <code>rwx</code> is for the user, the second is for the group, and the third is for all others.
+									<br><br>
+									Example permission fields: <code>drwxr-xr-x</code> and <code>-rw-r--r--</code>
+									<br><br>
+									<b>The first character represents the type of file:</b>
+									<code class="block whitespace-pre overflow-x-scroll my-2 p-2">d (directory)
+c (character device)
+l (symlink)
+p (named pipe)
+s (socket)
+b (block device)
+D (door)
+- (regular file)</code>
+									<br>
+									The octal shorthand is computed by suming each permission, where <code>r</code> is 4, <code>w</code> is 2, and <code>x</code> is 1, to get a number between 0 and 7. The first number is for user, then group, then others. For example, <code>rw-r--r--</code> is <code>644</code> in octal (you can use the converter too).
+								</p>
+							</div>
+
+							<div x-data="{ expanded: false }">
+								<p class="mb-2 mt-6 font-bold">Modifying Permissions
+									<button class="btn sm" @click="expanded = !expanded">
+										<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+											<g stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+												<path x-show="!expanded" d="M12 6v12"></path>
+												<path d="M6 12h12"></path>
+											</g>
+										</svg>
+									</button>
+								</p>
+								<p>You can set file permissions with the <code>chmod</code> command.</p>
+								<p class="mt-4" x-show.transition="expanded">
+									The syntax for <code>chmod</code> is <code>chmod [options] [mode] [filename]</code>. There are two ways to use <code>chmod</code>: octal and symbolic.
+									<br><br>
+									In <b>octal</b> mode, you can use <code>chmod [options] [octal] [filename]</code> to edit the permissions of a file. For example: <code>chmod 774 myfile.txt</code> or <code>chmod -R 644 myfolder</code>.
+									<br><br>
+									Some popular options include: <code>-R</code> (recursive), <code>-f</code> (force), <code>-v</code> (verbose). You can find the full list at <a href="http://www.gnu.org/software/coreutils/chmod" target="_blank">gnu.org</a>.
+									<br><br>
+									In <b>symbolic</b> mode, you can choose from the following options:
+									<br>
+									<b>References:</b>
+									<code class="block whitespace-pre overflow-x-scroll my-2 p-2">u: file owner
+g: users in the file group
+o: users neither in u nor g
+a: all users (u, g, and o)</code>
+									<b>Operator:</b>
+									<code class="block whitespace-pre overflow-x-scroll my-2 p-2">+: add mode
+-: remove mode
+=: exact mode</code>
+									<b>Mode</b>:
+									<code class="block whitespace-pre overflow-x-scroll my-2 p-2">r: read
+w: write
+x: execute</code>
+									<br>
+									For example <code>chmod u+x myfile.txt</code> will grant the user execute permissions on <code>myfile.txt</code>.
+									<br><br>
+									Examples from gnu.org:
+<code class="block whitespace-pre overflow-x-scroll my-2 p-2"># Change file permissions of FOO to be world readable
+# and user writable, with no other permissions.
+chmod 644 foo
+chmod a=r,u+w foo
+
+# Add user and group execute permissions to FOO.
+chmod +110 file
+chmod ug+x file</code>
+
+								</p>
+							</div>
+							
+							<hr>
+							<b>Links:</b>
+							 &nbsp; 
+							<a href="https://askubuntu.com/a/528433/1155582" target="_blank">Ask Ubuntu</a>
+							 &nbsp; 
+							<a href="https://linux.die.net/man/1/chmod" target="_blank">Linux Die</a>
+							&nbsp; 
+							<a href="https://www.guru99.com/file-permissions.html" target="_blank">Guru99</a>
+
 						</div>
 					</div>
 				</div>
 			</div>
 
 			<!-- flags modal -->
-			<!-- tabel modal -->
+			<!-- table modal -->
 			<!-- ? modal about website, made by justin, email me, fullscreen -->
 
 		</footer>
