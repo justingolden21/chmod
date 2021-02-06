@@ -38,11 +38,20 @@
 		@apply p-1 bg-gray-200;
 	}
 	hr {
-		@apply bg-gray-300 border border-gray-300 m-4;
+		@apply border-t-2 border-gray-300 m-4;
 	}
 }
 
 @layer components {
+	tr {
+		@apply border-2 border-gray-100;
+	}
+	th {
+		@apply tracking-wider;
+	}
+	th, td {
+		@apply p-2;
+	}
 
 	input[type=text] {
 		@apply p-2 m-2 text-gray-700 bg-gray-100 w-32;
@@ -51,7 +60,6 @@
 	label {
 		@apply text-sm;
 	}
-
 }
 
 @media (min-width: 640px) { /* sm */
