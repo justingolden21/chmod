@@ -1,5 +1,5 @@
 const staticCacheName = 'site-static-v2';
-const dynamicCacheName = 'site-dynamic-v4';
+const dynamicCacheName = 'site-dynamic-v5';
 const assets = [
 	'/',
 	'/index.html',
@@ -32,7 +32,7 @@ self.addEventListener('install', evt => {
 		caches.open(staticCacheName).then((cache) => {
 			console.log('caching shell assets');
 			cache.addAll(assets);
-		})
+		}).then(()=> self.skipWaiting()) // new
 	);
 });
 
@@ -57,6 +57,7 @@ self.addEventListener('fetch', evt => {
 		caches.match(evt.request).then(cacheRes => {
 			return cacheRes || fetch(evt.request).then(fetchRes => {
 				return caches.open(dynamicCacheName).then(cache => {
+					if(evt.request.url.indexOf('chrome-extension') != -1) return fetchRes; // new
 					cache.put(evt.request.url, fetchRes.clone());
 					// check cached items size
 					limitCacheSize(dynamicCacheName, 100);

@@ -1,6 +1,7 @@
 @import "./components/toggle.css";
 @import "./components/button.css";
 @import "./components/snackbar.css";
+@import "./components/modal.css";
 
 @tailwind base;
 @tailwind components;
@@ -8,13 +9,17 @@
 
 @layer base {
 	::-moz-selection {
-		@apply bg-gray-100;
+		@apply bg-indigo-100;
 	}
 	::selection {
-		@apply bg-gray-100;
+		@apply bg-indigo-100;
 	}
 	*:focus, button:focus {
 		@apply outline-none ring-2 ring-indigo-300;
+	}
+
+	body {
+		@apply m-4 text-gray-900;
 	}
 
 	h1 {
@@ -26,12 +31,15 @@
 	p {
 		@apply leading-relaxed;
 	}
+	code {
+		@apply p-1 bg-gray-200;
+	}
 }
 
 @layer components {
 
 	input[type=text] {
-		@apply p-1 m-2 text-gray-700 border-2 border-gray-300 w-32;
+		@apply p-2 m-2 text-gray-700 bg-gray-100 w-32;
 		font-family: 'Courier New', monospace;
 	}
 	label {
