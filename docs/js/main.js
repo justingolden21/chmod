@@ -68,6 +68,9 @@ function setup () {
         filename: 'myfile',
         get command() {
             return `chmod ${this.octal} ${this.filename}`;
+        },
+        get showTitle() {
+            return (this.more ? 'hide' : 'show') + ' more features';
         }
 
     }
