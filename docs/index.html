@@ -25,9 +25,9 @@
 	<section x-data="setup()" x-init="tmp = new URLSearchParams(location.search).get('q') || '000'; $nextTick(()=> updateOctal(tmp))">
 		<header class="text-center border-b-2 border-gray-300 pb-4">
 			<h1>
-				<img src="img/icons/icon.svg" class="h-6 inline">
+				<img src="img/icons/icon.svg" class="h-6 inline" alt="">
 				Chmod Calculator
-				<button id="link-btn" class="btn">
+				<button id="link-btn" class="btn" title="Copy link">
 					<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
 				</button>
 			</h1>
@@ -117,13 +117,13 @@
 
 				<input id="octal" type="text" x-bind:value="octal" @change="updateOctal(event.target.value)">
 				<label for="octal">Octal</label>
-				<button id="copy-octal-btn" class="btn">
+				<button id="copy-octal-btn" class="btn" title="Copy octal text">
 					<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
 				</button>
 				<br>
 				<input id="mode" type="text" x-bind:value="mode" @change="updateMode(event.target.value)">
 				<label for="mode">Mode</label>
-				<button id="copy-mode-btn" class="btn">
+				<button id="copy-mode-btn" class="btn" title="Copy mode text">
 					<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
 				</button>
 
@@ -134,7 +134,7 @@
 		<footer class="text-center border-t-2 border-gray-300 pt-4">
 
 			<div class="inline m-1" x-data="{ open: false }" x-on:keydown.escape="open = false">
-				<button class="btn" @click="open = true">
+				<button class="btn" @click="open = true" title="Information about permissions">
 					<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
 				</button>
 
@@ -294,7 +294,7 @@ chmod ug+x file</code>
 			</div>
 
 			<div class="inline m-1" x-data="{ open: false }" x-on:keydown.escape="open = false">
-				<button class="btn" @click="open = true">
+				<button class="btn" @click="open = true" title="Quick reference table">
 					<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
 				</button>
 			
