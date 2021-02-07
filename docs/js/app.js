@@ -5,21 +5,13 @@ if('serviceWorker' in navigator){
 }
 
 window.onload = function() {
-	document.getElementById('copy-octal-btn').onclick = function() {
-		document.getElementById('octal').select();
-		document.execCommand('copy');
-		showSnackbar('Copied octal');
-	};
-	document.getElementById('copy-mode-btn').onclick = function() {
-		document.getElementById('mode').select();
-		document.execCommand('copy');
-		showSnackbar('Copied mode');
-	};
-	document.getElementById('copy-command-btn').onclick = function() {
-		document.getElementById('command').select();
-		document.execCommand('copy');
-		showSnackbar('Copied command');
-	};	
+	for(let item of ['octal', 'mode', 'command']) {
+		document.getElementById(`copy-${item}-btn`).onclick = function() {
+			document.getElementById(item).select();
+			document.execCommand('copy');
+			showSnackbar(`Copied ${item}`);
+		};		
+	}
 	document.getElementById('link-btn').onclick = function() {
 		copyText(window.location.href);
 		showSnackbar('Copied link');
