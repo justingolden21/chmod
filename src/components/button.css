@@ -2,5 +2,8 @@
     @apply p-2 mx-1 rounded bg-gray-500 text-white hover:bg-gray-700;
 }
 .btn.sm {
-    @apply p-1;
+    @apply p-1 rounded-full;
+}
+.btn.active {
+    @apply bg-gray-700;
 }

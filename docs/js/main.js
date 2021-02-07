@@ -62,6 +62,14 @@ function setup () {
                 }
             }
             return txt;
+        },
+
+        more: false,
+        filename: 'myfile',
+        // operator: '+',
+        get command() {
+            return `chmod ${this.octal} ${this.filename}`;
         }
+
     }
 }

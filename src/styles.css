@@ -60,6 +60,9 @@
 	label {
 		@apply text-sm;
 	}
+	#command {
+		@apply w-48;
+	}
 }
 
 @media (min-width: 640px) { /* sm */

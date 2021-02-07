@@ -15,6 +15,11 @@ window.onload = function() {
 		document.execCommand('copy');
 		showSnackbar('Copied mode');
 	};
+	document.getElementById('copy-command-btn').onclick = function() {
+		document.getElementById('command').select();
+		document.execCommand('copy');
+		showSnackbar('Copied command');
+	};	
 	document.getElementById('link-btn').onclick = function() {
 		copyText(window.location.href);
 		showSnackbar('Copied link');
