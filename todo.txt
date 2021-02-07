@@ -1,0 +1,9 @@
+important:
+
+probably:
+split info modal into tabs
+add popover styles for titles
+about modal with: about website, made by justin, email and fullscreen btns
+
+maybe:
+printable table chart
