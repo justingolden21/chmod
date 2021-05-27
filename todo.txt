@@ -1,4 +1,5 @@
 important:
+add dropdown for target as in https://justingolden.me/permissions-generator/
 
 probably:
 split info modal into tabs
